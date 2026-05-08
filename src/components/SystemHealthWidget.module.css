@@ -1,0 +1,200 @@
+.container {
+    margin: 10px 1.5rem 20px;
+    padding: 12px 16px;
+    background: var(--color-bg-glass);
+    /* Reusing global variable if exits, or rgba(255,255,255,0.7) */
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    /* 16px radius */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.statusIndicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.label {
+    width: 32px;
+    font-weight: 600;
+}
+
+.barBg {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.barFill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.value {
+    width: 32px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.serverList {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Custom Scrollbar */
+.serverList::-webkit-scrollbar {
+    width: 4px;
+}
+
+.serverList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.serverList::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.serverItem {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.serverItem:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.criticalAcc {
+    border-color: #eb5a46;
+    background: rgba(235, 90, 70, 0.1);
+}
+
+.criticalAcc:hover {
+    background: rgba(235, 90, 70, 0.15);
+}
+
+.serverHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.serverName {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.statusBadge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.miniMetrics {
+    display: flex;
+    gap: 8px;
+}
+
+.miniBar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.miniLabel {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    min-width: 22px;
+}
+
+.barTrack {
+    flex: 1;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.barFill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s;
+}

@@ -1,0 +1,270 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal {
+    background: rgba(255, 255, 255, 0.98);
+    /* Increased Opacity */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    width: 400px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow */
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.content {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.labelList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.labelItem {
+    margin-bottom: 0.5rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.viewMode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.viewMode:hover {
+    background-color: var(--bg-secondary);
+}
+
+.labelBadge {
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.itemActions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    margin-left: 0.5rem;
+    padding: 4px;
+}
+
+.itemActions button:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-hover);
+    border-radius: 4px;
+}
+
+/* Edit/Create Form */
+.createForm,
+.editForm {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.createForm h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.preview {
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pendingBadge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.colorPalette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.colorBtn {
+    width: 100%;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.colorBtn:hover {
+    transform: scale(1.1);
+}
+
+.colorBtn.selected {
+    border: 2px solid var(--text-primary);
+    transform: scale(0.9);
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* High Contrast Buttons */
+.saveBtn,
+.createBtn {
+    flex: 1;
+    padding: 0.6rem;
+    background-color: #0071e3 !important;
+    /* Brand Blue */
+    color: #ffffff !important;
+    /* Force White */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    z-index: 10;
+    transition: background-color 0.2s;
+}
+
+.saveBtn:hover,
+.createBtn:hover {
+    background-color: #0077ed !important;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 0.6rem;
+    background-color: #f5f5f7 !important;
+    /* Light Gray */
+    border: 1px solid #d2d2d7;
+    color: #1d1d1f !important;
+    /* Black */
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancelBtn:hover {
+    background-color: #e5e5ea !important;
+}
+
+.creationBox {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    background: #ffffff;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.addBtn {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.05);
+    /* Slightly darker than bg-secondary */
+    border: 1px dashed var(--border-color);
+    /* Dashed border for "add" feel */
+    border-radius: 6px;
+    color: var(--text-primary);
+    /* Darker text */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.addBtn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #0071e3;
+    /* Brand Blue on hover */
+    border-color: #0071e3;
+}

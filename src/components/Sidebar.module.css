@@ -1,0 +1,180 @@
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    /* Transparent / Glass Background matching the unified layout */
+    background-color: var(--color-bg-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-right: 1px solid var(--color-bg-glass-border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: all var(--transition-smooth);
+    z-index: 100;
+}
+
+.logoSection {
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logoTypo {
+    font-family: var(--font-sans);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.logoAccent {
+    color: var(--color-primary);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 1.5rem;
+    /* Match new padding */
+}
+
+.sectionHeader h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+}
+
+.addButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.addButton:hover {
+    background-color: var(--color-bg-glass);
+    color: var(--color-text-main);
+}
+
+.workspaceList {
+    list-style: none;
+    padding: 0 1rem;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.workspaceList li {
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-fast);
+    font-size: 15px;
+    color: var(--color-text-main);
+}
+
+.workspaceList li:hover {
+    background-color: var(--color-bg-glass);
+}
+
+.workspaceList li.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.wsName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.settingsButton {
+    background: none;
+    border: none;
+    color: inherit;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    border-radius: 4px;
+}
+
+.settingsButton:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.createForm {
+    margin: 0 1.5rem 15px;
+    background: var(--color-bg-glass);
+    padding: 10px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.createForm input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    font-size: 14px;
+    background: var(--color-bg-primary);
+    color: var(--color-text-main);
+}
+
+.createForm input:focus {
+    outline: 2px solid var(--color-primary);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.formActions button {
+    padding: 6px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.formActions button[type="submit"] {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.formActions button[type="button"] {
+    background-color: transparent;
+    color: var(--color-text-muted);
+}
+
+.formActions button[type="button"]:hover {
+    color: var(--color-text-main);
+    background-color: var(--color-bg-glass);
+}

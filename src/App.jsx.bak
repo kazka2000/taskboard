@@ -1,0 +1,39 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ProjectProvider, useProject } from './context/ProjectContext';
+import { Dashboard } from './pages/Dashboard';
+import { Login } from './pages/Login';
+import { Board } from './features/Board';
+import { Admin } from './pages/Admin';
+import { Header } from './components/Header';
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <ProjectProvider>
+        <AuthWrapper />
+      </ProjectProvider>
+    </Router>
+  );
+}
+
+function AuthWrapper() {
+  const { currentUser } = useProject();
+
+  if (!currentUser) {
+    return <Login />;
+  }
+
+  return (
+    <div className="app-container">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/project/:projectId" element={<Board />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;

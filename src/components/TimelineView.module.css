@@ -1,0 +1,32 @@
+.timelineWrapper {
+    flex: 1;
+    background: var(--board-card-bg, #ffffff);
+    padding: 20px;
+    overflow: auto;
+    color: #333;
+    /* Setup text color primarily for day mode */
+}
+
+.emptyState {
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+}
+
+/* Override Gantt Styles for Dark Mode if needed */
+/* The library creates SVG elements. We might need global overrides or rely on props */
+/* Fortunately, user requested "dark/light theme connection" */
+/* Gantt-task-react doesn't support CSS variables easily for everything, but we can target classes */
+
+/* Example overrides */
+:global(.gantt .grid-header),
+:global(.gantt .grid-row) {
+    fill: var(--board-card-bg, #fff);
+}
+
+:global(.gantt .bar-label) {
+    fill: var(--text-primary, #333);
+}
+
+/* We might need to wrap the gantt in a specific container to scope these if possible */

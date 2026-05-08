@@ -1,0 +1,208 @@
+.column {
+    background: var(--board-list-bg, var(--color-bg-secondary));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    width: 350px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border for glass */
+    margin-right: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+}
+
+.header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: transparent;
+    /* Let column bg show through */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: inherit;
+    /* Inherit text color from board container usually, but column content might need specific color if background is light but board was dark image? Actually, if list bg is semi-transparent white/black, text should adapt to list bg, not board bg. */
+    /* If we force list bg to be 'glass' (e.g. transparent white), we generally want dark text, or white text if glass is dark. */
+    /* Our logic in Board.jsx sets --board-list-bg. */
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.count {
+    background: var(--color-bg-glass-strong);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.addBtn {
+    background: transparent;
+    color: var(--color-text-muted);
+    padding: 0.25rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.addBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-main);
+}
+
+.taskList {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 100px;
+}
+
+.taskList::-webkit-scrollbar {
+    width: 4px;
+}
+
+.emptyPlaceholder {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    min-height: 100px;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menuContainer {
+    position: relative;
+}
+
+.menuBtn {
+    background: transparent;
+    color: var(--color-text-muted);
+    padding: 0.25rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+}
+
+.menuBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-main);
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    width: 150px;
+    overflow: hidden;
+    padding: 0.25rem;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.menuItem:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.deleteItem {
+    color: #ef4444;
+}
+
+.deleteItem:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    cursor: default;
+}
+
+.editTitleForm {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.titleInput {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 0;
+}
+
+.editActions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.iconBtn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.iconBtn:hover {
+    color: var(--color-text-main);
+}

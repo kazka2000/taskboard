@@ -1,0 +1,279 @@
+  /* Adaptive Color System */
+  :root {
+    /* Fixed High-Contrast Theme Colors (Apple Blue) */
+    --color-primary-fixed: #0071e3;
+    --color-text-fixed: #ffffff;
+
+    /* Base Colors & Glass */
+    --color-bg-primary: #f5f5f7;
+    /* Apple Light Gray */
+    --color-bg-glass: rgba(255, 255, 255, 0.65);
+    --color-bg-glass-strong: rgba(255, 255, 255, 0.85);
+    --color-bg-glass-border: rgba(255, 255, 255, 0.4);
+
+    /* Semantic Colors */
+    --color-primary: #0071e3;
+    --color-primary-hover: #0077ed;
+    --color-primary-subtle: rgba(0, 113, 227, 0.1);
+    --color-primary-glow: rgba(0, 113, 227, 0.3);
+
+    --color-text-main: #1d1d1f;
+    --color-text-muted: #86868b;
+    --color-text-inverted: #ffffff;
+    --color-text-adaptive: #1d1d1f;
+    /* Changes based on theme */
+
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-border-hover: rgba(0, 0, 0, 0.2);
+
+    --color-danger: #ff3b30;
+    --color-success: #34c759;
+    --color-warning: #ffb340;
+
+    /* Shadows (Soft & Diffused) */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.12);
+    /* Soft deep shadow for hover */
+    --glow-active: 0 0 20px var(--color-primary-glow);
+
+    /* Radius - Unified 16px */
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    /* Unified Standard */
+    --color-text-main: #e0e0e0 !important;
+    background: radial-gradient(circle at top left, #0f172a 0%, #000000 100%) !important;
+  }
+
+  /* Saturation Filter for Rain/Clouds */
+  body {
+    filter: saturate(var(--sat-factor));
+    transition: filter 1s ease;
+  }
+
+  /* Fonts */
+  --font-sans: -apple-system,
+  BlinkMacSystemFont,
+  'Pretendard',
+  'Inter',
+  sans-serif;
+
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Bouncy */
+  }
+
+  /* Glassmorphism Utilities */
+  .glass-panel {
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--color-bg-glass-border);
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius-md);
+    /* 16px */
+  }
+
+  /* Glass Card Variation (Bubble Effect) */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-md);
+    /* 16px */
+    transition: transform var(--transition-spring), box-shadow 0.3s ease, background 0.3s ease;
+    color: var(--color-text-adaptive);
+  }
+
+  /* Hover: Scale & Glow (No Color Inversion) */
+  .glass-card:hover {
+    transform: scale(1.03);
+    /* Subtle water drop pop */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 0 15px var(--color-primary-glow);
+    /* Drop + Glow */
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+  }
+
+  /* Dark Mode (System) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-primary: #000000;
+      --color-bg-glass: rgba(28, 28, 30, 0.65);
+      --color-bg-glass-strong: rgba(28, 28, 30, 0.85);
+      --color-bg-glass-border: rgba(255, 255, 255, 0.12);
+
+      --color-text-main: #f5f5f7;
+      --color-text-muted: #86868b;
+      --color-text-adaptive: #f5f5f7;
+
+      --color-border: rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-card {
+      background: rgba(30, 30, 30, 0.5);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card:hover {
+      background: rgba(45, 45, 45, 0.7);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  /* Global Reset & Body */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    /* Unified Gradient Background */
+    background: radial-gradient(circle at top left, #fceceb 0%, #f4f5f7 40%, #eef2f3 100%);
+    /* Or a more "Apple" mesh gradient if possible, but simple soft gradient works */
+    color: var(--color-text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode override for body background */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: radial-gradient(circle at top left, #1a1a2e 0%, #000000 100%);
+    }
+  }
+
+  /* --- Manual Theme Overrides --- */
+
+  /* Dark Theme */
+  body.theme-black {
+    --color-bg-primary: #000000;
+    --color-bg-glass: rgba(28, 28, 30, 0.65);
+    --color-bg-glass-strong: rgba(28, 28, 30, 0.85);
+    --color-bg-glass-border: rgba(255, 255, 255, 0.12);
+
+    --color-text-main: #f5f5f7;
+    --color-text-muted: #86868b;
+    --color-text-inverted: #000000;
+    --color-text-adaptive: #f5f5f7;
+    /* White text on black */
+
+    --color-border: rgba(255, 255, 255, 0.1);
+
+    background: radial-gradient(circle at top left, #1a1a2e 0%, #000000 100%);
+  }
+
+  body.theme-black .glass-card {
+    background: rgba(30, 30, 30, 0.5);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body.theme-black .glass-card:hover {
+    background: rgba(45, 45, 45, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Light Theme */
+  body.theme-white {
+    --color-bg-primary: #f5f5f7;
+    --color-bg-glass: rgba(255, 255, 255, 0.65);
+    --color-bg-glass-strong: rgba(255, 255, 255, 0.85);
+    --color-bg-glass-border: rgba(255, 255, 255, 0.4);
+
+    --color-text-main: #1d1d1f;
+    --color-text-muted: #6e6e73;
+    --color-text-inverted: #ffffff;
+    --color-text-adaptive: #1d1d1f;
+    /* Black text on white */
+
+    --color-border: rgba(0, 0, 0, 0.1);
+
+    background: radial-gradient(circle at top left, #ffffff 0%, #f5f5f7 100%);
+  }
+
+  body.theme-white .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Slight border for visibility on white */
+  }
+
+  body.theme-white .glass-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Default (Purple) Theme */
+  body.theme-default {
+    --color-bg-primary: #f5f5f7;
+    --color-bg-glass: rgba(255, 255, 255, 0.65);
+    --color-bg-glass-strong: rgba(255, 255, 255, 0.85);
+    --color-bg-glass-border: rgba(255, 255, 255, 0.4);
+
+    /* Override Primary Cluster to Purple */
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-primary-subtle: rgba(99, 102, 241, 0.1);
+    --color-primary-glow: rgba(99, 102, 241, 0.3);
+
+    --color-text-main: #1d1d1f;
+    --color-text-muted: #86868b;
+    --color-text-inverted: #ffffff;
+    --color-text-adaptive: #1d1d1f;
+
+    --color-border: rgba(0, 0, 0, 0.1);
+
+    background: radial-gradient(circle at top left, #e0e7ff 0%, #f5f3ff 40%, #ffffff 100%);
+  }
+
+  body.theme-default .glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  body.theme-default .glass-card:hover {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    outline: none;
+  }
+
+  /* Layout Container to ensure full height and unified look */
+  #root {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  /* --- Environmental Filters --- */
+
+  /* Reduced Visibility / Misty Effect */
+  body.env-rain .glass-panel,
+  body.env-rain .glass-card {
+    backdrop-filter: blur(35px);
+    /* Increased from 25px */
+    -webkit-backdrop-filter: blur(35px);
+    transform: translateZ(0);
+    /* Hardware Acceleration */
+  }
+
+  /* Sunny Glow Effect */
+  body.env-sunny .glass-panel,
+  body.env-sunny .glass-card {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), var(--shadow-glass);
+    transform: translateZ(0);
+    /* Hardware Acceleration */
+    border-color: rgba(255, 255, 255, 0.5);
+    /* Brighter borders */
+  }

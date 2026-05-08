@@ -1,0 +1,105 @@
+.summaryContainer {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #dfe1e6);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-color, #172b4d);
+    font-weight: 600;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.statCard {
+    background: var(--bg-secondary, #f4f5f7);
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.statCard.warning {
+    background-color: #fff7ed;
+    border-color: #ffedd5;
+    color: #c2410c;
+}
+
+.statCard.danger {
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #6b778c);
+    margin-bottom: 5px;
+}
+
+.statCard.warning .statLabel {
+    color: #ea580c;
+}
+
+.statCard.danger .statLabel {
+    color: #dc2626;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color, #172b4d);
+}
+
+.statCard.warning .statValue {
+    color: #c2410c;
+}
+
+.statCard.danger .statValue {
+    color: #b91c1c;
+}
+
+.progressSection {
+    margin-top: 10px;
+}
+
+.progressHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #5e6c84);
+}
+
+.progressPercent {
+    font-weight: 600;
+    color: var(--text-color, #172b4d);
+}
+
+.progressBarBg {
+    height: 10px;
+    background-color: var(--bg-secondary, #ebecf0);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progressBarFill {
+    height: 100%;
+    background-color: #0079bf;
+    /* Blue */
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    border-radius: 5px;
+}

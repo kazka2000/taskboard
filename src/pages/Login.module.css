@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    /* Clean white background */
+    background: #ffffff;
+    transition: background 0.3s ease;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Removed dark mode adjustment for card to keep it clean white */
+
+.card h1 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: normal;
+    color: #000000;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    white-space: pre-line;
+    word-break: keep-all;
+    text-shadow: 
+        -2px -2px 0 #fff,  
+         2px -2px 0 #fff,
+        -2px  2px 0 #fff,
+         2px  2px 0 #fff,
+         0px  4px 0 #facc15,
+         4px  4px 0 #facc15,
+         6px  6px 0 #ca8a04;
+}
+
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    opacity: 0.9;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+/* Removed input dark mode overrides */
+
+.inputGroup input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    transform: translateY(-1px);
+}
+
+.loginBtn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    /* Primary gradient */
+    color: white;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+}
+
+.loginBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
+}
+
+.loginBtn:active {
+    transform: translateY(0);
+}
+
+.loginBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.error {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.hint {
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+/* Removed hint dark mode */
+
+.hint ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.hint li {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Removed hint li dark mode */

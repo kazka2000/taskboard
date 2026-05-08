@@ -1,0 +1,38 @@
+.calendarWrapper {
+    width: 100%;
+    /* Ensure it takes available space in the flex container */
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: var(--board-card-bg, #ffffff);
+    /* Remove border-radius if it interferes with full-bleed, but keeping mostly */
+    /* border-radius: 8px; */
+    /* Remove box-shadow if it looks weird scrolling */
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+    color: var(--text-primary, #333);
+}
+
+/* Dark Mode Overrides for FullCalendar */
+/* Checks generic dark mode or specific vars */
+@media (prefers-color-scheme: dark) {
+    .calendarWrapper {
+        /* background: #1f2937;  Handled by var above */
+        color: #e5e7eb;
+    }
+}
+
+/* Customizing FullCalendar Vars if needed */
+:global(.fc) {
+    --fc-border-color: rgba(128, 128, 128, 0.2);
+    --fc-button-bg-color: #3b82f6;
+    --fc-button-border-color: #3b82f6;
+    --fc-button-hover-bg-color: #2563eb;
+    --fc-button-hover-border-color: #2563eb;
+    --fc-button-active-bg-color: #1d4ed8;
+    --fc-today-bg-color: rgba(59, 130, 246, 0.1);
+}
+
+:global(.fc .fc-toolbar-title) {
+    font-size: 1.5rem;
+    font-weight: 600;
+}

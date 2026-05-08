@@ -1,0 +1,137 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(9, 30, 66, 0.54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal {
+    background-color: #ffffff;
+    border-radius: 3px;
+    width: 600px;
+    max-width: 90%;
+    box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #dfe1e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #172b4d;
+}
+
+.header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #42526e;
+}
+
+.body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.platformRow {
+    background: #f4f5f7;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 8px;
+    background: white;
+    border: 1px solid #dfe1e6;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.inputGroup input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    color: #6b778c;
+    display: flex;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.testBtn,
+.saveBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.1s;
+}
+
+.testBtn {
+    background: #ebecf0;
+    color: #172b4d;
+}
+
+.testBtn:hover {
+    background: #dfe1e6;
+}
+
+.saveBtn {
+    background: #0079bf;
+    color: white;
+}
+
+.saveBtn:hover {
+    background: #0079bf;
+}
+
+.guide {
+    font-size: 12px;
+    color: #6b778c;
+}

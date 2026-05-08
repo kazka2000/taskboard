@@ -1,0 +1,252 @@
+.card {
+    background: var(--board-card-bg, #ffffff);
+    /* Ensure text color inside card is standard dark (since card bg is usually white-ish), unless card bg is dark. 
+       For now, we assume cards are light enough for dark text, or we can use a variable. 
+       Let's stick to standard text color for cards to ensure readability against the card bg. */
+    color: #172b4d;
+    /* Force dark text on cards for now, or use var if we want dark mode cards */
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    cursor: grab;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    touch-action: none;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-hover, #fafbfc);
+}
+
+.card:hover .checkboxContainer {
+    opacity: 1;
+}
+
+.card.selected {
+    border: 2px solid #0079bf;
+    background-color: #e6f7ff;
+}
+
+.card.selected .checkboxContainer {
+    opacity: 1;
+}
+
+.checkboxContainer {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectionCheckbox {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.card.dragging {
+    opacity: 0.5;
+    background: var(--bg-secondary, #ebecf0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    cursor: grabbing;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.coverImageContainer {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 100px;
+}
+
+.coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tag {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Tag Colors */
+.general {
+    background-color: #ebecf0;
+    color: #5e6c84;
+}
+
+.urgent {
+    background-color: #ffe2dd;
+    color: #ae2a19;
+}
+
+.design {
+    background-color: #e6fcff;
+    color: #008da6;
+}
+
+.bug {
+    background-color: #fff0b3;
+    color: #a5ad00;
+}
+
+/* Bug is often Red/Orange, but Jira uses Yellow/Red. let's go Yellowish */
+.feature {
+    background-color: #e3fcef;
+    color: #006644;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    /* Hide by default */
+    transition: opacity 0.2s;
+}
+
+.card:hover .actions {
+    opacity: 1;
+}
+
+.deleteBtn,
+.grip {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary, #6b778c);
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.deleteBtn:hover {
+    background-color: #ffe4e6;
+    color: #e11d48;
+}
+
+.grip {
+    cursor: grab;
+}
+
+.title {
+    margin: 0 0 10px 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-color, #172b4d);
+    word-wrap: break-word;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.metaLeft {
+    display: flex;
+    gap: 10px;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #5e6c84);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clipIcon {
+    font-size: 0.8rem;
+}
+
+.assignees {
+    display: flex;
+    gap: -4px;
+    /* Overlap */
+}
+
+.assigneeInitials {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #0079bf;
+    color: white;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    margin-left: -6px;
+}
+
+.assigneeInitials:first-child {
+    margin-left: 0;
+}
+
+/* Custom Fields */
+.customFields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.customFieldBadge {
+    font-size: 0.7rem;
+    background: var(--bg-secondary, #f4f5f7);
+    padding: 2px 6px;
+    border-radius: 10px;
+    color: var(--text-secondary, #5e6c84);
+    border: 1px solid var(--border-color, #dfe1e6);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.checkboxBadge {
+    color: #006644;
+    background-color: #e3fcef;
+    border-color: #bbf0d8;
+}
+
+/* Labels */
+.labelsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}

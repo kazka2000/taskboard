@@ -1,0 +1,28 @@
+{
+    "name": "taskboard-server",
+    "version": "1.0.0",
+    "description": "Backend for Taskboard",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "db:init": "node db_init.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "csv-parse": "^6.1.0",
+        "dotenv": "^17.2.3",
+        "express": "^4.18.2",
+        "json2csv": "^6.0.0-alpha.2",
+        "multer": "^2.0.2",
+        "mysql2": "^3.6.5",
+        "pdfkit": "^0.17.2",
+        "pg": "^8.20.0",
+        "socket.io": "^4.8.3",
+        "socket.io-client": "^4.8.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11"
+    }
+}

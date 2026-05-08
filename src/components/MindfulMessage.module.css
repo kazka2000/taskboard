@@ -1,0 +1,167 @@
+.container {
+    margin: 20px 1.5rem 20px;
+    /* Top margin increased for balance since logo gone */
+    padding: 12px 16px;
+    background: var(--color-bg-glass);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: var(--shadow-sm);
+    cursor: default;
+    /* Added subtle shadow */
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Weather Themes --- */
+.themeClear {
+    background: rgba(255, 200, 50, 0.1);
+    border-color: rgba(255, 200, 50, 0.15);
+}
+
+.themeClear:hover {
+    background: rgba(255, 200, 50, 0.2);
+}
+
+.themeRain {
+    background: rgba(100, 120, 150, 0.1);
+    border-color: rgba(100, 120, 150, 0.15);
+}
+
+.themeRain:hover {
+    background: rgba(100, 120, 150, 0.2);
+}
+
+.themeClouds {
+    background: rgba(200, 200, 200, 0.1);
+    border-color: rgba(200, 200, 200, 0.2);
+}
+
+.themeClouds:hover {
+    background: rgba(200, 200, 200, 0.2);
+}
+
+.iconWrapper {
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+}
+
+.text {
+    font-size: 0.85rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Animations --- */
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rainDrop {
+    0% {
+        transform: translateY(-2px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(4px);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+}
+
+.animSpin {
+    animation: spinSlow 12s linear infinite;
+}
+
+.animRain {
+    /* Apply to the icon itself, or maybe an overlay? 
+       To animate drops *within* an SVG is hard CSS-only without complex SVG structure. 
+       Let's just bounce the icon gently or use the 'rainDrop' on the whole icon for a 'bobbing' rain effect?
+       Or strictly following instruction: "Rain drops falling" - hard on single SVG.
+       Let's do a vertical bobbing to simulate falling movement or just use the float Vertical.
+    */
+    animation: floatVertical 2s ease-in-out infinite;
+}
+
+@keyframes floatVertical {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(2px);
+    }
+}
+
+.animClouds {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    .container {
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .themeClear {
+        background: rgba(255, 200, 50, 0.05);
+        border-color: rgba(255, 200, 50, 0.1);
+    }
+
+    .themeRain {
+        background: rgba(100, 120, 150, 0.1);
+        border-color: rgba(100, 120, 150, 0.15);
+    }
+
+    .themeClouds {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
