@@ -1029,9 +1029,6 @@ export function ProjectProvider({ children }) {
             setCurrentWorkspace,
             fetchWorkspaces,
             createWorkspace,
-            setCurrentWorkspace,
-            fetchWorkspaces,
-            createWorkspace,
             deleteWorkspace,
             mindfulContext, // Export context
             useAdaptiveBackground,
@@ -1077,7 +1074,6 @@ export function ProjectProvider({ children }) {
             deleteLabel,
             updateTaskLabels,
             shareProject,
-            addUser,
             socket,
             // Multi-Selection
             selectedTaskIds,

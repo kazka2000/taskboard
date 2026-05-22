@@ -99,6 +99,57 @@ class DbManager {
     async query(sql, params = []) {
         return this.execute(sql, params);
     }
+
+    /**
+     * Unified interface to get a single connection/client from the pool.
+     * Essential for transactions and multiple dependent operations in a single session.
+     * Returns an object wrapped to behave like a mysql2 connection.
+     */
+    async getConnection() {
+        if (!this.pool) {
+            await this.init();
+        }
+
+        if (this.type === 'mysql') {
+            return this.pool.getConnection();
+        } else if (this.type === 'postgres' || this.type === 'postgresql') {
+            const client = await this.pool.connect();
+            const self = this;
+            return {
+                client,
+                async beginTransaction() {
+                    await this.client.query('BEGIN');
+                },
+                async commit() {
+                    await this.client.query('COMMIT');
+                },
+                async rollback() {
+                    await this.client.query('ROLLBACK');
+                },
+                async execute(sql, params = []) {
+                    const translatedSql = self._translateQueryForPg(sql);
+                    const result = await this.client.query(translatedSql, params);
+                    
+                    let simulatedResultObject = result.rows;
+                    if (/^\s*(INSERT|UPDATE|DELETE)/i.test(translatedSql)) {
+                        simulatedResultObject = {
+                            affectedRows: result.rowCount,
+                            insertId: (result.rows && result.rows.length > 0 && result.rows[0].id) ? result.rows[0].id : 0
+                        };
+                    }
+                    return [simulatedResultObject, result.fields];
+                },
+                async query(sql, params = []) {
+                    return this.execute(sql, params);
+                },
+                release() {
+                    this.client.release();
+                }
+            };
+        } else {
+            throw new Error(`Unsupported DB_TYPE: ${this.type}`);
+        }
+    }
 }
 
 // Export a singleton instance
